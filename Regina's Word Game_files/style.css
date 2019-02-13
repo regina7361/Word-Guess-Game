@@ -22,7 +22,6 @@ body {
 }
 
 .wins, 
-.guessesCount,
 h2 {
     font-family: Orbitron,serif;
     font-size: 20px;
@@ -34,12 +33,7 @@ h2 {
 
 .wins {
     margin: 10px;
-    float: right;
-}
-
-.guessesCount {
-    margin: 10px;
-    float: left;
+    text-align: right;
 }
 
 .transbox {

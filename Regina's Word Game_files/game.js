@@ -59,10 +59,11 @@ document.addEventListener('keypress', (event) => {
     }
         //if letters are wrong add to wrong letter array
         else {
-            wrongLetter.push(keyword);
             guessesLeft--;
-            document.getElementById('numGuesses').innerHTML = guessesLeft;
+            wrongLetter.push(keyword);
             fillWrongGuess[0].innerHTML = wrongLetter;
+            document.getElementById('numGuesses').innerHTML = guessesLeft;
+
         }
 });
 

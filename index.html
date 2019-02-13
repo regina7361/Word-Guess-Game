@@ -8,23 +8,27 @@
         <script src="assets/javascript/game.js"></script>
     </head>
 
-    <body>
-            <h1>Wins:</h1>
+    <body onLoad="generateUnderscore();">
+
+            <div class="wins">WINS: <span id="winCounter" style="color: greenyellow">0</span></div>
+            <div class="guessesCount"> GUESSES LEFT: <span id="numGuesses" style="color:greenyellow">9</span></div>
 
             <img src="/Users/Regina/Word-Guess-Game/assets/images/fortniteskinheader.png"
             alt="guess that character" class="headimg">
 
-            <h2>Press any letter key to get start</h2>
+            <h2>Press any key to get start</h2>
             
             <!--<div id="transParentBox" class="transBox"></div>
 
             <div id="insertLetterBox" class="letterBox">A</div>-->
             
-            <div class="underscore"></div>
-
-            <h2>Correct Letters: </h2><div class="rightGuess">testing</div>
+            <div class="underscore" id="underscore"></div>
             <br>
-            <h2>Letters Guessed Wrong: </h2><div class="wrongGuess">testing</div>
+            <br>
+            <h2>Correct Letters: </h2><div class="rightGuess" style="color:greenyellow;font-size:30px;"></div>
+            <br>
+            <h2>Letters Guessed Wrong: </h2><div class="wrongGuess" style="color:greenyellow;font-size:30px;"></div>
+            <br>
         </div>
         <footer>
             <div class="container">
