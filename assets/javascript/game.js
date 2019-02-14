@@ -22,6 +22,7 @@ let underScore = [];
 //Counters
 var winCount = 0;
 var guessesLeft = 9;
+var loseCount = 0;
 
 //Dom manipulation
 let fillUnderScore = document.getElementsByClassName('underscore');
@@ -57,6 +58,7 @@ document.addEventListener('keypress', (event) => {
             alert('You Win!'); //add a div that doesn't have anything (maybe an img tag)    
         }
     }
+    
         //if letters are wrong add to wrong letter array
         else {
             wrongLetter.push(keyword);
@@ -64,6 +66,16 @@ document.addEventListener('keypress', (event) => {
             document.getElementById('numGuesses').innerHTML = guessesLeft;
             fillWrongGuess[0].innerHTML = wrongLetter;
         }
+        
+        if (guessesLeft === 0){
+		//Counts losses
+		loseCount++;
+		//Changes HTML
+		document.getElementById('lossCounter').innerHTML = loseCount;
+		alert('You Lose');
+		//reset();
+    }
+    
 });
 
 
@@ -71,7 +83,6 @@ document.addEventListener('keypress', (event) => {
 
 //fixes for tomorrow:
 //fill in all underscores that match a single letter (first forloop will find all the indexes and push into an array and the second forloop will add the letter to each index)
-//Number of Guesses Remaining: (# of guesses remaining for the user).
 //After the user wins/loses the game should automatically choose another word and make the user play it.
 //add image when user wins (replace image with prompt)
 //ignore letters case - ex. if I enter 'r' it doesn't recognize it but if I enter R it works
