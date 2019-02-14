@@ -2,7 +2,7 @@
     box-sizing: border-box
 }
 body {
-    background-image: url(assets/images/camouflage.jpg);
+    background-image: url(../assets/images/camouflage.jpg);
     margin-top: 0px;
     margin-bottom: 0px;
     margin-right: 0px;
