@@ -1,25 +1,20 @@
 //Array of fortnite characters
-const fortniteSkins = ['commando', 'devastator', 'dominator', 
-'liteshow', 'fate', 'flytrap', 'magnus', 'oblivion', 'omen',
-'raptor', 'raven', 'nitelite', 'renegade', 'scout', 'jumpshot', 
-'abstrakt', 'bandolier', 'burnout', 'tomatohead', 'ventura', 
-'venturion', 'diecast', 'scoundrel', 'moonwalker', 'carbide', 
-'battlehawk', 'teknique', 'zoey', 'valor', 'omega', 'drift', 
-'huntress', 'redline', 'sledgehammer', 'rook', 'ragnarok', 'fable',
-'dusk', 'nightshade', 'calamity', 'dire', 'aim', 'zenith', 'lynx', 
-'powder', 'trog', 'onesie'];
+const fortniteSkins = ['liteshow', 'fate', 'flytrap', 'magnus', 'omen',
+'raven', 'scout', 'jumpshot', 'bandolier', 'burnout', 'ventura',  
+'diecast', 'scoundrel', 'carbide', 'zoey', 'valor', 'omega', 'drift', 
+'rook', 'fable', 'dusk', 'nightshade', 'dire', 'aim', 'zenith', 'lynx', 
+'powder', 'trog'];
+
 
 //Choose word randomly
 let randomName = Math.floor(Math.random() * fortniteSkins.length);
 let chosenWord = fortniteSkins[randomName];
 console.log(chosenWord);
 
-//Introduce main variables
+//Introduce global variables
 let rightLetter = [];
 let wrongLetter = [];
 let underScore = [];
-
-//Counters
 var winCount = 0;
 var guessesLeft = 9;
 var loseCount = 0;
@@ -29,12 +24,30 @@ let fillUnderScore = document.getElementsByClassName('underscore');
 let fillRightGuess = document.getElementsByClassName('rightGuess');
 let fillWrongGuess = document.getElementsByClassName('wrongGuess');
 
+//function reset()
+//{
+    //chosenWord = fortniteSkins[Math.floor(Math.random() * wordBank.length)];
+    //document.getElementById('fnskinsimage').innerHTML = "<img src='../assets/images/"+ choosenWord + ".jpeg'/>";
+    
+    //rightLetter = [];
+    //wrongLetter = [];
+    //guessesLeft = 9;
+    //winCount = 0;
+    //loseCount = 0;
+    //underScore =[];
+
+    //test=false;
+    //generateUnderscore();
+//}
+
 //Create underscores based on length of word
 let generateUnderscore = () => {
     for(let i = 0; i < chosenWord.length; i++){
         underScore.push('_');
     }
     fillUnderScore[0].innerText = underScore.join(' ');
+    document.getElementById('pic').innerHTML = 
+    "<img src='assets/images/"+ chosenWord + ".jpg'/>";
 }
 
 //Get users guessed letter
@@ -55,7 +68,8 @@ document.addEventListener('keypress', (event) => {
         if(underScore.join('') == chosenWord){
             winCount++; //Counts Wins
             document.getElementById('winCounter').innerHTML = winCount;
-            alert('You Win!'); //add a div that doesn't have anything (maybe an img tag)    
+            alert('You Win!');
+            document.location.reload();   
         }
     }
     
@@ -73,16 +87,9 @@ document.addEventListener('keypress', (event) => {
 		//Changes HTML
 		document.getElementById('lossCounter').innerHTML = loseCount;
 		alert('You Lose');
-		//reset();
+		document.location.reload();
     }
     
 });
 
 
-
-
-//fixes for tomorrow:
-//fill in all underscores that match a single letter (first forloop will find all the indexes and push into an array and the second forloop will add the letter to each index)
-//After the user wins/loses the game should automatically choose another word and make the user play it.
-//add image when user wins (replace image with prompt)
-//ignore letters case - ex. if I enter 'r' it doesn't recognize it but if I enter R it works

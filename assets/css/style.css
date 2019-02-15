@@ -124,3 +124,8 @@ h2 {
     margin: 20px;
 }
 
+#pic {
+    float: left;
+    width: 25%;
+}
+
